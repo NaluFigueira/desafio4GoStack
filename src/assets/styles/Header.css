@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.headerDiv{
+  background-color: #4A90E2;
+  height: 64px; 
+  display:flex;
+  padding-inline-start: 32px;
+  padding-inline-end: 32px;
+}
+
+.headerLogo{
+  object-fit: contain;
+}
+
+.headerProfile{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.headerProfile span{
+  color: white;
+  margin-right: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.headerProfile .icon{
+  color: white;
+}
