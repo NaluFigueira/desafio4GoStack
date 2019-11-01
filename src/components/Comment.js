@@ -1,12 +1,12 @@
 import React from 'react';
 import '../assets/styles/Comment.css';
 
-function Comment({avatar,author,content}){
+function Comment({author,content}){
   return(
     <div className="comment">
-      <img className = "avatar" src = {avatar} />
+      <img className = "avatar" src = {author.avatar} />
       <div className= "commentContent content">
-        <span className = "author">{author} </span>
+        <span className = "author">{author.name} </span>
         <span style = {{fontFamily: 'Helvetica'}}>{content}</span>
       </div>
     </div>

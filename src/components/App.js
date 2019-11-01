@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './Header';
-import Post from './Post';
+import PostList from './PostList';
 
 function App(){
   return(
     <>
       <Header />
-      <Post />
+      <PostList />
     </>
   );
 }

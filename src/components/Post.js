@@ -2,14 +2,14 @@ import React from 'react';
 import '../assets/styles/Comment.css';
 import Comment from './Comment';
 
-function Post({avatar,date,author,content}){
+function Post({date,author,content,comments}){
   return(
       <div className = "post">
 
         <div className = "comment">
-          <img className = "avatar" src={avatar}/>
+          <img className = "avatar" src={author.avatar}/>
           <div className = "postData">
-            <span className = "author">{author}</span>
+            <span className = "author">{author.name}</span>
             <span className = "date">{date}</span>
           </div>
         </div>
@@ -17,7 +17,18 @@ function Post({avatar,date,author,content}){
         <div className = "postContent content" >
           <p>{content}</p>
         </div>
-        <Comment />
+        <div>
+          {
+            comments.map(comment => (
+              <Comment 
+                key = {comment.id}
+                avatar = {comment.avatar}
+                author = {comment.author}
+                content = {comment.content}
+              />
+            ))
+          }
+        </div>
       </div>
   );
 }

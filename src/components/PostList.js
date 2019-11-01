@@ -1,6 +1,5 @@
 import React from 'react';
-import '../assets/styles/PostList.css';
-import './Post';
+import Post from './Post';
 
 class PostList extends React.Component{
   state = {
@@ -8,73 +7,88 @@ class PostList extends React.Component{
       {
         id: 1,
         author: {
-          name: "Jon Doe",
-          avatar: "../assets/images/guy1.jpg"
+          name: "Jonny Schofield",
+          avatar: require("../assets/images/guy1.jpg")
         },
         date: "04 Jun 2019",
-        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!",
+        content: "Hey guys, does someone know if Rockseat is hiring?",
         comments: [
           {
             id: 1,
             author: {
-              name: "Jon Doe",
-              avatar: "../assets/images/guy2.jpg"
+              name: "Scott Bolto",
+              avatar: require("../assets/images/guy2.jpg")
             },
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!"
+            content: "Diego said that Rocketseat is always " +
+            "looking for new team members, and usually they keep an eye "+ 
+            "out for people who stand out in Bootcamp. Actually, 80% of the "+
+            "current dev team is made of Bootcamp students. Besides, Diego said that "+ 
+            "if you wish to teach by recording videos and writing posts, "+
+            "you can call him on Discord."
           }
         ]
       },
       {
         id: 2,
         author: {
-          name: "Jon Doe",
-          avatar: "../assets/images/guy3.jpg"
+          name: "Manuel Sandoval",
+          avatar: require("../assets/images/guy3.jpg")
         },
         date: "04 Jun 2019",
-        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!",
+        content: "Hey guys, how it's going? I'm at Rocketseat's GoStack " +
+        "Bootcamp and it has been an amazing experience! Are there other " +
+        "students around here? Comment in this post so we can talk about it! ",
         comments: [
           {
             id: 2,
             author: {
-              name: "Jon Doe",
-              avatar: "../assets/images/guy2.jpg"
+              name: "Scott Bolto",
+              avatar: require("../assets/images/guy4.jpg")
             },
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!"
+            content: "Awesooooooooome! I'm thinking about enrolling in the "+
+            "next edition to see if it's worth it, I heard that devs get out "+
+            "there with super powers!"
           },
           {
             id: 3,
             author: {
-              name: "Mary Doe",
-              avatar: "../assets/images/lady1.jpg"
+              name: "Ava Smith",
+              avatar: require("../assets/images/lady1.jpg")
             },
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!"
+            content: "I'm also attending to the Bootcamp and I'm loving it! "+
+            "I'm in the third module and I already have my Gympoint's API done!"
           }
         ]
       },
       {
         id: 3,
         author: {
-          name: "Jon Doe",
-          avatar: "../assets/images/guy3.jpg"
+          name: "Manuel Sandoval",
+          avatar: require("../assets/images/guy3.jpg")
         },
         date: "04 Jun 2019",
-        content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!",
+        content: "Hey guys, how it's going? I'm at Rocketseat's GoStack " +
+        "Bootcamp and it has been an amazing experience! Are there other " +
+        "students around here? Comment in this post so we can talk about it! ",
         comments: [
           {
             id: 4,
             author: {
-              name: "Jon Doe",
-              avatar: "../assets/images/guy2.jpg"
+              name: "Scott Bolto",
+              avatar: require("../assets/images/guy4.jpg")
             },
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!"
+            content: "Awesooooooooome! I'm thinking about enrolling in the "+
+            "next edition to see if it's worth it, I heard that devs get out "+
+            "there with super powers!"
           },
           {
             id: 5,
             author: {
-              name: "Mary Doe",
-              avatar: "../assets/images/lady1.jpg"
+              name: "Ava Smith",
+              avatar: require("../assets/images/lady1.jpg")
             },
-            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto cupiditate rerum, ab, dicta est voluptatibus blanditiis sed eligendi perferendis sit fugiat aut minus in? Commodi obcaecati similique eveniet vitae iusto!"
+            content: "I'm also attending to the Bootcamp and I'm loving it! "+
+            "I'm in the third module and I already have my Gympoint's API done!"
           }
         ]
       },
@@ -82,12 +96,22 @@ class PostList extends React.Component{
   }
 
   render(){
-      this.state.posts.map(post => {
-        return(
-          <Post avatar = {post.avatar} author = {post.author} content ={post.content}/>
-        );
-      }
+    return(
+      <div>
+        {this.state.posts.map(post => (
+            <Post 
+              key = {post.id}
+              date = {post.date}
+              author = {post.author} 
+              content ={post.content} 
+              comments = {post.comments}
+            />
+        )
+        )}
+      </div>
     );
   }
 
 }
+
+export default PostList;
